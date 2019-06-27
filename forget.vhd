@@ -51,17 +51,17 @@ begin
     process
     variable temp : real := 0.0;
     begin
-        F1: for i in 0 to 3 loop
-            F2: for j in 0 to 7 loop
-                temp := xt(i) * wf(i, j);
-                xt_wf(j) <= xt_wf(j) + temp;  
+        F1: for i in 0 to 7 loop
+            F2: for j in 0 to 3 loop
+                temp := xt(j) * wf(j, i);
+                xt_wf(i) <= xt_wf(i) + temp;  
             end loop F2;
         end loop F1;
         
         F3: for i in 0 to 7 loop
             F4: for j in 0 to 7 loop
-                temp := ht_1(i) * uf(i, j);
-                ht_1_uf(j) <= ht_1_uf(j) + temp;  
+                temp := ht_1(j) * uf(j, i);
+                ht_1_uf(i) <= ht_1_uf(i) + temp;  
             end loop F4;
         end loop F3;
         
